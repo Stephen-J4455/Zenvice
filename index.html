@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenvice App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">Z</div>
+        <div class="brand-text">
+          <h1>Zenvice</h1>
+          <p>Learn • Work • Hire</p>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#home" data-view="home" class="menu-link active"><i class="fa-solid fa-house menu-ico"></i><span>Home</span></a>
+        <a href="#learn" data-view="learn" class="menu-link"><i class="fa-solid fa-graduation-cap menu-ico"></i><span>Learn</span></a>
+        <a href="#jobs" data-view="jobs" class="menu-link"><i class="fa-solid fa-briefcase menu-ico"></i><span>Jobs</span></a>
+        <a href="#hire" data-view="hire" class="menu-link"><i class="fa-solid fa-users menu-ico"></i><span>Hire</span></a>
+        <a href="#projects" data-view="projects" class="menu-link"><i class="fa-solid fa-diagram-project menu-ico"></i><span>Projects</span></a>
+        <a href="#profile" data-view="profile" class="menu-link"><i class="fa-solid fa-user menu-ico"></i><span>Profile</span></a>
+        <a href="#login" data-view="login" class="menu-link"><i class="fa-solid fa-right-to-bracket menu-ico"></i><span>Login</span></a>
+        <a href="#signup" data-view="signup" class="menu-link"><i class="fa-solid fa-user-plus menu-ico"></i><span>Sign Up</span></a>
+      </nav>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <button id="toggleSidebar" class="icon-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        <input id="globalSearch" class="search" type="search" placeholder="Search tracks, jobs, projects...">
+        <span id="authChip" class="auth-chip">Guest</span>
+      </header>
+
+      <main id="viewRoot" class="view-root">
+        <section id="home" class="view active">
+          <article class="hero card">
+            <div class="hero-text">
+              <p class="hero-mini">ZENVICE CORE ENTRY</p>
+              <h2>Find Your Path. Build Your Skill. Do Real Work.</h2>
+              <p>Calm, structured growth from learning to earning with guided outcomes.</p>
+              <div class="hero-actions">
+                <button class="btn primary" data-nav="signup"><i class="fa-solid fa-bolt"></i> Get started</button>
+                <button class="btn" data-nav="learn"><i class="fa-solid fa-route"></i> Explore Tracks</button>
+              </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="People collaborating on work">
+          </article>
+
+          <div class="section-head"><h3><i class="fa-solid fa-layer-group"></i> Learning & Training</h3></div>
+          <div id="homeTrackGrid" class="grid card-grid"></div>
+
+          <div class="section-head"><h3><i class="fa-solid fa-briefcase"></i> Jobs & Hiring</h3></div>
+          <div class="grid dual-grid" id="homeSplitCards"></div>
+
+          <div class="section-head"><h3><i class="fa-solid fa-laptop-code"></i> Real Work Experience</h3></div>
+          <div id="homeProjectGrid" class="grid card-grid"></div>
+
+          <div class="section-head"><h3><i class="fa-solid fa-message"></i> Success Stories</h3></div>
+          <div id="storyGrid" class="grid card-grid"></div>
+
+          <div class="section-head"><h3><i class="fa-solid fa-chart-column"></i> Stats / Proof</h3></div>
+          <div id="statsGrid" class="grid stats-grid"></div>
+        </section>
+
+        <section id="learn" class="view">
+          <article class="card hero-strip">
+            <div><p class="hero-mini">GUIDED PATHS</p><h3>Build skills with mentors, projects, and milestones.</h3></div>
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80" alt="Students">
+          </article>
+          <div class="section-head"><h3>Tracks</h3></div>
+          <div id="learnGrid" class="grid card-grid"></div>
+          <div class="section-head"><h3>Mentors</h3></div>
+          <div id="mentorGrid" class="grid card-grid"></div>
+          <div class="section-head"><h3>Curriculum Highlights</h3></div>
+          <div id="curriculumGrid" class="grid dual-grid"></div>
+        </section>
+
+        <section id="jobs" class="view">
+          <article class="card hero-strip">
+            <div><p class="hero-mini">CAREER ACCESS</p><h3>Discover, save, and apply to matching roles.</h3></div>
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Jobs dashboard">
+          </article>
+          <div class="card inline-form">
+            <select id="jobLevel">
+              <option value="all">All Skill Levels</option>
+              <option value="entry">Entry</option>
+              <option value="mid">Mid</option>
+              <option value="senior">Senior</option>
+            </select>
+            <button class="btn" id="clearSavedJobs">Clear Saved Jobs</button>
+          </div>
+          <div id="jobGrid" class="grid card-grid"></div>
+          <div class="section-head"><h3>Saved Jobs</h3></div>
+          <div id="savedJobsGrid" class="grid"></div>
+        </section>
+
+        <section id="hire" class="view">
+          <article class="card hero-strip">
+            <div><p class="hero-mini">HIRING DASHBOARD</p><h3>Find verified Zenvice talent and external applicants.</h3></div>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Recruiters">
+          </article>
+          <div class="grid dual-grid" id="hirePills"></div>
+          <div id="talentGrid" class="grid card-grid"></div>
+        </section>
+
+        <section id="projects" class="view">
+          <article class="card hero-strip">
+            <div><p class="hero-mini">PROJECTS</p><h3>Inspect project docs and hire teams behind the work.</h3></div>
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Projects board">
+          </article>
+          <div id="projectGrid" class="grid card-grid"></div>
+          <div class="section-head"><h3>Project Documentation Library</h3></div>
+          <div id="docsGrid" class="grid dual-grid"></div>
+        </section>
+
+        <section id="profile" class="view">
+          <article class="card hero-strip">
+            <div><p class="hero-mini">PROFILE SYSTEM</p><h3>Manage skills, portfolio, progress, and work history.</h3></div>
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80" alt="Profile planning">
+          </article>
+          <div class="grid dual-grid">
+            <article class="card profile-card">
+              <img src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?auto=format&fit=crop&w=700&q=80" alt="Profile avatar">
+              <h3 id="profileName">Your Name</h3>
+              <p id="profileRole">Role</p>
+              <span id="profileSkill" class="tag">Skill</span>
+              <p id="profileAuthHint" class="auth-hint">Sign in to save across sessions</p>
+            </article>
+            <form id="profileForm" class="card form">
+              <label>Name<input id="nameInput" type="text" required></label>
+              <label>Role<input id="roleInput" type="text" required></label>
+              <label>Primary Skill<input id="skillInput" type="text" required></label>
+              <button class="btn primary" type="submit">Save Profile</button>
+              <p id="profileMsg" class="hint" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+
+        <section id="login" class="view">
+          <article class="card auth-card">
+            <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
+            <p>Use Firebase email/password auth to access your account.</p>
+            <label>Firebase Web Config JSON
+              <textarea id="firebaseConfig" rows="5" placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","appId":"..."}'></textarea>
+            </label>
+            <label>Email<input id="loginEmail" type="email" placeholder="you@example.com"></label>
+            <label>Password<input id="loginPassword" type="password" placeholder="••••••••"></label>
+            <button id="loginBtn" class="btn primary" type="button">Login</button>
+            <p id="loginMsg" class="hint"></p>
+          </article>
+        </section>
+
+        <section id="signup" class="view">
+          <article class="card auth-card">
+            <h2><i class="fa-solid fa-user-plus"></i> Sign Up</h2>
+            <p>Create a new account with Firebase email/password.</p>
+            <label>Email<input id="signupEmail" type="email" placeholder="you@example.com"></label>
+            <label>Password<input id="signupPassword" type="password" placeholder="Minimum 6 characters"></label>
+            <label>Confirm Password<input id="signupPassword2" type="password" placeholder="Re-enter password"></label>
+            <button id="signupBtn" class="btn primary" type="button">Create Account</button>
+            <button id="logoutBtn" class="btn danger" type="button">Logout</button>
+            <p id="signupMsg" class="hint"></p>
+          </article>
+        </section>
+      </main>
+
+      <footer id="megaFooter" class="mega-footer"></footer>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

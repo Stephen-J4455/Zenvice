@@ -1,0 +1,237 @@
+{
+  "homeSplitCards": [
+    {
+      "title": "For Job Seekers",
+      "text": "Browse roles, check skill level, and apply with portfolio integration.",
+      "action": "Browse Jobs",
+      "nav": "jobs"
+    },
+    {
+      "title": "For Employers",
+      "text": "Post jobs and filter by verified Zenvice-trained talent and external applicants.",
+      "action": "Open Hire Dashboard",
+      "nav": "hire",
+      "danger": true
+    }
+  ],
+  "tracks": [
+    {
+      "id": "t1",
+      "name": "Tech (Web, Python, UI/UX)",
+      "type": "Guided Track",
+      "mentor": "Mentor-led",
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "t2",
+      "name": "Business Growth Track",
+      "type": "Project-based",
+      "mentor": "Mentor-led",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "t3",
+      "name": "Creative Brand Track",
+      "type": "Guided Track",
+      "mentor": "Mentor-led",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "t4",
+      "name": "Data & Analytics Track",
+      "type": "Guided Track",
+      "mentor": "Mentor-led",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "mentors": [
+    {
+      "name": "Ada N.",
+      "role": "Frontend Mentor",
+      "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Kunle O.",
+      "role": "Backend Mentor",
+      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Musa Y.",
+      "role": "Product Mentor",
+      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"
+    }
+  ],
+  "curriculum": [
+    {
+      "title": "Phase 1: Foundations",
+      "text": "Core web, collaboration, and tooling.",
+      "meta": "4 weeks"
+    },
+    {
+      "title": "Phase 2: Guided Builds",
+      "text": "Mentor feedback and delivery checkpoints.",
+      "meta": "6 weeks"
+    },
+    {
+      "title": "Phase 3: Real Work",
+      "text": "Team-based project execution and review.",
+      "meta": "8 weeks"
+    },
+    {
+      "title": "Phase 4: Hiring Prep",
+      "text": "Portfolio, interviews, and role matching.",
+      "meta": "2 weeks"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j1",
+      "title": "Frontend Developer",
+      "company": "Payflow",
+      "level": "entry",
+      "location": "Remote",
+      "note": "Portfolio integration enabled",
+      "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "j2",
+      "title": "UI Engineer",
+      "company": "CredPal",
+      "level": "mid",
+      "location": "Lagos",
+      "note": "Strong product UI experience",
+      "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "j3",
+      "title": "Full-Stack Engineer",
+      "company": "Kora",
+      "level": "senior",
+      "location": "Hybrid",
+      "note": "Node.js + modern frontend stack",
+      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "hirePills": [
+    {
+      "title": "Verified Zenvice Talent (Recommended)",
+      "text": "Filter by training score, project output, and team behavior."
+    },
+    {
+      "title": "External Applicants",
+      "text": "Broaden your hiring pool with additional profiles."
+    }
+  ],
+  "talents": [
+    {
+      "name": "Amaka Obi",
+      "role": "Frontend Engineer",
+      "source": "Zenvice-trained",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Daniel Yusuf",
+      "role": "Product Designer",
+      "source": "Zenvice-trained",
+      "image": "https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Nora James",
+      "role": "Backend Engineer",
+      "source": "External applicant",
+      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=80"
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "title": "Team Commerce Dashboard",
+      "desc": "Built by trainees with analytics and access control.",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "p2",
+      "title": "Health Booking Platform",
+      "desc": "Case-study-driven delivery from discovery to launch.",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "p3",
+      "title": "EdTech Learning System",
+      "desc": "Documentation-rich build with collaborative team history.",
+      "image": "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "docs": [
+    {
+      "title": "Architecture Notes",
+      "text": "System decisions and module boundaries."
+    },
+    {
+      "title": "API Reference",
+      "text": "Endpoints, contracts, and integration guides."
+    },
+    {
+      "title": "Deployment Playbook",
+      "text": "CI/CD flow, rollback and quality gates."
+    },
+    {
+      "title": "Team Roles",
+      "text": "Ownership map for project contributors."
+    }
+  ],
+  "stories": [
+    {
+      "quote": "I moved from trainee to full-time frontend role in 4 months.",
+      "author": "Ada • Trainee"
+    },
+    {
+      "quote": "We hired two Zenvice-trained developers and ramp-up was fast.",
+      "author": "Talent Lead • Employer"
+    },
+    {
+      "quote": "The project team documentation made hiring decisions easy.",
+      "author": "CTO • Startup"
+    }
+  ],
+  "stats": [
+    {
+      "label": "Trainees",
+      "value": "12,000+"
+    },
+    {
+      "label": "Job Placements",
+      "value": "3,100+"
+    },
+    {
+      "label": "Active Companies",
+      "value": "420+"
+    },
+    {
+      "label": "Projects Delivered",
+      "value": "980+"
+    }
+  ],
+  "footer": {
+    "intro": "From learning to earning with guided execution, mentorship, and real work experience.",
+    "platform": [
+      "Tracks",
+      "Jobs",
+      "Hire",
+      "Projects",
+      "Profile"
+    ],
+    "company": [
+      "About",
+      "Careers",
+      "Contact",
+      "Terms",
+      "Privacy"
+    ],
+    "contact": [
+      "hello@zenvice.io",
+      "Lagos • Abuja • Remote",
+      "+234 800 000 0000"
+    ]
+  }
+}
