@@ -62,7 +62,7 @@ const fallbackContent = {
     intro: "From learning to earning with guided execution, mentorship, and real work experience.",
     platform: ["Tracks", "Jobs", "Hire", "Projects", "Profile"],
     company: ["About", "Careers", "Contact", "Terms", "Privacy"],
-    contact: ["hello@zenvice.io", "Lagos • Abuja • Remote", "+234 800 000 0000"]
+    contact: ["hello@zenvice.io", "Accra • Ghana • Remote", "+233 800 000 0000"]
   }
 };
 
@@ -96,6 +96,7 @@ function showToast(message) {
 
 function setView(viewId) {
   const target = views.some((v) => v.id === viewId) ? viewId : "home";
+  document.body.classList.toggle("auth-view-active", target === "login" || target === "signup");
   views.forEach((v) => v.classList.toggle("active", v.id === target));
   links.forEach((l) => l.classList.toggle("active", l.dataset.view === target));
   requestAnimationFrame(applyScrollReveal);
@@ -212,17 +213,35 @@ function renderProfile() {
 
 function renderFooter() {
   const footer = content.footer;
+  const resourceLinks = ["Help Center", "Community", "Mentor Program", "Partnerships", "Status"];
+  const legalLinks = ["Terms", "Privacy", "Cookies", "Security", "Accessibility"];
+  const trustStats = [
+    { label: "Active learners", value: "12k+" },
+    { label: "Hiring partners", value: "420+" },
+    { label: "Projects delivered", value: "980+" }
+  ];
   document.getElementById("megaFooter").innerHTML = `
-    <div class="footer-grid reveal">
-      <section>
-        <h4>Zenvice</h4>
+    <div class="footer-cta">
+      <div>
+        <p class="footer-kicker">ZENVICE NETWORK</p>
+        <h3>From learning to earning, in one connected platform.</h3>
         <p>${footer.intro}</p>
+      </div>
+      <div class="footer-trust">
+        ${trustStats.map((item) => `<article><strong>${item.value}</strong><span>${item.label}</span></article>`).join("")}
+      </div>
+    </div>
+    <div class="footer-grid">
+      <section class="footer-col-wide">
+        <h4>Zenvice</h4>
+        <p>Build skills with mentors, complete real projects, and get matched to companies actively hiring.</p>
         <div class="socials">
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
         </div>
+        <p class="footer-mini">Support: Mon - Sat, 8:00 AM - 7:00 PM (WAT)</p>
       </section>
       <section>
         <h4>Platform</h4>
@@ -233,11 +252,23 @@ function renderFooter() {
         ${footer.company.map((x) => `<a href="#">${x}</a>`).join("")}
       </section>
       <section>
-        <h4>Contact</h4>
+        <h4>Resources</h4>
+        ${resourceLinks.map((x) => `<a href="#">${x}</a>`).join("")}
+      </section>
+      <section>
+        <h4>Contact & Offices</h4>
         ${footer.contact.map((x) => `<p>${x}</p>`).join("")}
+        <p>Accra, Ghana</p>
+      </section>
+      <section>
+        <h4>Legal & Trust</h4>
+        ${legalLinks.map((x) => `<a href="#">${x}</a>`).join("")}
       </section>
     </div>
-    <div class="footer-bottom">© 2026 Zenvice. All rights reserved.</div>
+    <div class="footer-bottom">
+      <p>© 2026 Zenvice. All rights reserved.</p>
+      <p>Built for learners, professionals, and hiring teams.</p>
+    </div>
   `;
 }
 
@@ -282,13 +313,13 @@ async function loadContent() {
 
 async function getFirebaseAuthContext(config) {
   if (firebaseCtx) return firebaseCtx;
-  const [{ initializeApp }, { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }] = await Promise.all([
+  const [{ initializeApp }, { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword }] = await Promise.all([
     import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"),
     import("https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js")
   ]);
   const app = initializeApp(config);
   const auth = getAuth(app);
-  firebaseCtx = { auth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };
+  firebaseCtx = { auth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword };
   return firebaseCtx;
 }
 
@@ -376,17 +407,16 @@ document.addEventListener("click", (event) => {
 });
 
 document.getElementById("loginBtn").addEventListener("click", async () => {
-  const configRaw = document.getElementById("firebaseConfig").value.trim();
+  const configRaw = localStorage.getItem(FIREBASE_CONFIG_KEY);
   const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
   const msg = document.getElementById("loginMsg");
   if (!configRaw) {
-    msg.textContent = "Paste Firebase config JSON first.";
+    msg.textContent = "Firebase auth config is not set for this build.";
     return;
   }
   try {
     const config = JSON.parse(configRaw);
-    localStorage.setItem(FIREBASE_CONFIG_KEY, configRaw);
     const ctx = await getFirebaseAuthContext(config);
     await ctx.signInWithEmailAndPassword(ctx.auth, email, password);
     msg.textContent = "Login successful.";
@@ -397,7 +427,7 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
 });
 
 document.getElementById("signupBtn").addEventListener("click", async () => {
-  const configRaw = document.getElementById("firebaseConfig").value.trim();
+  const configRaw = localStorage.getItem(FIREBASE_CONFIG_KEY);
   const email = document.getElementById("signupEmail").value.trim();
   const pass = document.getElementById("signupPassword").value;
   const pass2 = document.getElementById("signupPassword2").value;
@@ -407,12 +437,11 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
     return;
   }
   if (!configRaw) {
-    msg.textContent = "Paste Firebase config JSON on Login page first.";
+    msg.textContent = "Firebase auth config is not set for this build.";
     return;
   }
   try {
     const config = JSON.parse(configRaw);
-    localStorage.setItem(FIREBASE_CONFIG_KEY, configRaw);
     const ctx = await getFirebaseAuthContext(config);
     await ctx.createUserWithEmailAndPassword(ctx.auth, email, pass);
     msg.textContent = "Account created successfully.";
@@ -422,27 +451,10 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
   }
 });
 
-document.getElementById("logoutBtn").addEventListener("click", async () => {
-  const msg = document.getElementById("signupMsg");
-  if (!firebaseCtx) {
-    msg.textContent = "No active Firebase session.";
-    return;
-  }
-  try {
-    await firebaseCtx.signOut(firebaseCtx.auth);
-    msg.textContent = "Logged out.";
-    showToast("Logged out");
-  } catch {
-    msg.textContent = "Logout failed.";
-  }
-});
-
 window.addEventListener("hashchange", routeFromHash);
 
 (async function bootstrap() {
   await loadContent();
-  const stored = localStorage.getItem(FIREBASE_CONFIG_KEY);
-  if (stored) document.getElementById("firebaseConfig").value = stored;
   const ctx = await connectAuthIfConfigProvided();
   if (ctx) ctx.onAuthStateChanged(ctx.auth, (user) => setAuthUI(user));
   if (!location.hash) location.hash = "#home";

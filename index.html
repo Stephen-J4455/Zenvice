@@ -14,7 +14,9 @@
   <div id="app" class="app">
     <aside id="sidebar" class="sidebar">
       <div class="brand">
-        <div class="brand-mark">Z</div>
+        <div class="brand-mark">
+          <img src="./assets/logo.jpg" alt="Zenvice logo" class="site-logo sidebar-logo">
+        </div>
         <div class="brand-text">
           <h1>Zenvice</h1>
           <p>Learn • Work • Hire</p>
@@ -28,19 +30,29 @@
         <a href="#hire" data-view="hire" class="menu-link"><i class="fa-solid fa-users menu-ico"></i><span>Hire</span></a>
         <a href="#projects" data-view="projects" class="menu-link"><i class="fa-solid fa-diagram-project menu-ico"></i><span>Projects</span></a>
         <a href="#profile" data-view="profile" class="menu-link"><i class="fa-solid fa-user menu-ico"></i><span>Profile</span></a>
-        <a href="#login" data-view="login" class="menu-link"><i class="fa-solid fa-right-to-bracket menu-ico"></i><span>Login</span></a>
-        <a href="#signup" data-view="signup" class="menu-link"><i class="fa-solid fa-user-plus menu-ico"></i><span>Sign Up</span></a>
       </nav>
     </aside>
 
     <div class="main-wrap">
       <header class="topbar">
         <button id="toggleSidebar" class="icon-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-        <input id="globalSearch" class="search" type="search" placeholder="Search tracks, jobs, projects...">
-        <span id="authChip" class="auth-chip">Guest</span>
+        <div class="topbar-brand">
+          <img src="./assets/logo.jpg" alt="Zenvice logo" class="site-logo topbar-logo">
+          <strong>Zenvice</strong>
+          <span>Learn • Work • Hire</span>
+        </div>
+        <div class="topbar-actions">
+          <span id="authChip" class="auth-chip">Guest</span>
+          <a href="#login" class="btn top-auth-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a href="#signup" class="btn primary top-auth-btn"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+        </div>
       </header>
 
       <main id="viewRoot" class="view-root">
+        <div class="card page-search-wrap">
+          <label class="search-label" for="globalSearch"><i class="fa-solid fa-magnifying-glass"></i> Search across tracks, jobs, mentors, and projects</label>
+          <input id="globalSearch" class="search" type="search" placeholder="Try: frontend, mentor, remote, project docs...">
+        </div>
         <section id="home" class="view active">
           <article class="hero card">
             <div class="hero-text">
@@ -52,7 +64,7 @@
                 <button class="btn" data-nav="learn"><i class="fa-solid fa-route"></i> Explore Tracks</button>
               </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="People collaborating on work">
+            <img src="./assets/pagehelp.jpg" alt="People collaborating on work">
           </article>
 
           <div class="section-head"><h3><i class="fa-solid fa-layer-group"></i> Learning & Training</h3></div>
@@ -146,29 +158,51 @@
         </section>
 
         <section id="login" class="view">
-          <article class="card auth-card">
-            <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
-            <p>Use Firebase email/password auth to access your account.</p>
-            <label>Firebase Web Config JSON
-              <textarea id="firebaseConfig" rows="5" placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","appId":"..."}'></textarea>
-            </label>
-            <label>Email<input id="loginEmail" type="email" placeholder="you@example.com"></label>
-            <label>Password<input id="loginPassword" type="password" placeholder="••••••••"></label>
-            <button id="loginBtn" class="btn primary" type="button">Login</button>
-            <p id="loginMsg" class="hint"></p>
+          <article class="card auth-shell">
+            <aside class="auth-visual">
+              <img src="./assets/logo.jpg" alt="Zenvice logo" class="site-logo auth-logo">
+              <p class="auth-kicker">WELCOME BACK</p>
+              <h2>Sign in to continue your Zenvice journey</h2>
+              <p>Access your tracks, saved jobs, and project collaborations in one secure workspace.</p>
+              <ul class="auth-points">
+                <li><i class="fa-solid fa-shield-halved"></i> Secure Firebase authentication</li>
+                <li><i class="fa-solid fa-graduation-cap"></i> Resume your learning milestones</li>
+                <li><i class="fa-solid fa-briefcase"></i> Manage applications and hiring activity</li>
+              </ul>
+            </aside>
+            <div class="auth-card">
+              <h3><i class="fa-solid fa-right-to-bracket"></i> Login</h3>
+              <p class="auth-copy">Use your account credentials to access your dashboard.</p>
+              <label>Email<input id="loginEmail" type="email" placeholder="you@example.com"></label>
+              <label>Password<input id="loginPassword" type="password" placeholder="••••••••"></label>
+              <button id="loginBtn" class="btn primary auth-btn" type="button"><i class="fa-solid fa-arrow-right"></i>Login</button>
+              <p id="loginMsg" class="hint" aria-live="polite"></p>
+            </div>
           </article>
         </section>
 
         <section id="signup" class="view">
-          <article class="card auth-card">
-            <h2><i class="fa-solid fa-user-plus"></i> Sign Up</h2>
-            <p>Create a new account with Firebase email/password.</p>
-            <label>Email<input id="signupEmail" type="email" placeholder="you@example.com"></label>
-            <label>Password<input id="signupPassword" type="password" placeholder="Minimum 6 characters"></label>
-            <label>Confirm Password<input id="signupPassword2" type="password" placeholder="Re-enter password"></label>
-            <button id="signupBtn" class="btn primary" type="button">Create Account</button>
-            <button id="logoutBtn" class="btn danger" type="button">Logout</button>
-            <p id="signupMsg" class="hint"></p>
+          <article class="card auth-shell">
+            <aside class="auth-visual">
+              <img src="./assets/logo.jpg" alt="Zenvice logo" class="site-logo auth-logo">
+              <p class="auth-kicker">CREATE ACCOUNT</p>
+              <h2>Start learning, building, and getting hired</h2>
+              <p>Create your Zenvice account to unlock guided tracks, projects, and role-matching support.</p>
+              <ul class="auth-points">
+                <li><i class="fa-solid fa-rocket"></i> Personalized learning paths</li>
+                <li><i class="fa-solid fa-users"></i> Mentor and team collaboration</li>
+                <li><i class="fa-solid fa-diagram-project"></i> Real project experience portfolio</li>
+              </ul>
+            </aside>
+            <div class="auth-card">
+              <h3><i class="fa-solid fa-user-plus"></i> Sign Up</h3>
+              <p class="auth-copy">Create your account with a secure password.</p>
+              <label>Email<input id="signupEmail" type="email" placeholder="you@example.com"></label>
+              <label>Password<input id="signupPassword" type="password" placeholder="Minimum 6 characters"></label>
+              <label>Confirm Password<input id="signupPassword2" type="password" placeholder="Re-enter password"></label>
+              <button id="signupBtn" class="btn primary auth-btn" type="button"><i class="fa-solid fa-sparkles"></i>Create Account</button>
+              <p id="signupMsg" class="hint" aria-live="polite"></p>
+            </div>
           </article>
         </section>
       </main>
